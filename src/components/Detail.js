@@ -3,7 +3,7 @@ import axios from 'axios';
 import {
     useParams
   } from "react-router-dom";
-  import '..//css/App.css';
+import '../css/App.css';
 class Data extends React.Component {
     
     state = {
