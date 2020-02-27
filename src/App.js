@@ -9,7 +9,7 @@ import {
 
 import Detail from './components/Detail';
 
-import logo from './logo.svg';
+import logo from './podspace.png';
 import './css/App.css';
 
 class PodCasts extends React.Component {
@@ -96,9 +96,9 @@ class Header extends React.Component {
   render() {
     return (
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" width="50px" />
+        <img src={logo} alt="logo" />
         <p>
-          Podspace
+          Podcast Client
         </p>
       </header>
     );
