@@ -1,8 +1,10 @@
 import React from 'react';
 import axios from 'axios';
+import { Link } from "react-router-dom";
 /** @jsx jsx */
 import {css, jsx} from "@emotion/core";
 import styled from '@emotion/styled';
+import Episodes from './Episodes';
 class Data extends React.Component {
     
     state = {
@@ -45,7 +47,7 @@ class Data extends React.Component {
                                     ) : (
                                         <p>Tidak ada episode</p>
                                     )}
-                                    <a href="/" className="Detail-button">{'<<'} Kembali</a>
+                                    <Link to="/" className="Detail-button">{'<< Kembali'}</Link>
                             </td>
                         </tr>
                     )}
@@ -55,19 +57,5 @@ class Data extends React.Component {
         );
     }
 }
-class Episodes extends React.Component {
-    render(){
-        const episodes = this.props.episodes;
-    return (
-        <div>
-    {episodes.map(item => 
-        <p>
-            <audio controls>
-                <source src={item.audio}></source>
-            </audio></p>
-        )}
-        </div>
-    );
-    }
-}
+
 export default Data;

@@ -1,5 +1,6 @@
 import React, {Suspense} from 'react';
 import { Row, Col } from 'react-flexbox-grid';
+import { Link } from "react-router-dom";
 /** @jsx jsx */
 import {css, jsx} from "@emotion/core";
 
@@ -21,7 +22,7 @@ class PodcastRow extends React.Component {
           <Col lg={9} md={9} sm={12} xs={12}>
             <h3>{podcast.title}</h3>
             <p>{podcast.url}</p>
-            <a href={"/detail/"+podcast.id} css={css`background: #650d88;color: #fff;padding: 10px;`}>Lihat >></a>
+            <Link to={"/detail/"+podcast.id} css={css`background: #650d88;color: #fff;padding: 10px;`}>Lihat >></Link>
             <br />
           </Col>
         </Row>
