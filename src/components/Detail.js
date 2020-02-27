@@ -29,17 +29,17 @@ class Data extends React.Component {
                     <table className="Tabel-pods">
                     { this.state.podcasts.map(podcast => 
                         <tr>
-                            <td><img src={podcast.thumbnail} alt={podcast.title} width="350px"/></td>
+                            <td><img src={podcast.thumbnail} alt={podcast.title} width="400px"/></td>
                             <td>
                                 <h3>{podcast.title}</h3>
-                                <p>{podcast.url}</p>
+                                <p><a href={podcast.url}>{podcast.url}</a></p>
                                 Episodes:
                                 {podcast.episodes ? (
                                         <Episodes episodes={podcast.episodes} />
                                     ) : (
                                         <p>Tidak ada episode</p>
                                     )}
-                                    <a href="/">Kembali</a>
+                                    <a href="/" className="Detail-button">{'<<'} Kembali</a>
                             </td>
                         </tr>
                     )}

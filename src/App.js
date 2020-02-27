@@ -1,15 +1,16 @@
-import React from 'react';
+import React, { Suspense, lazy } from 'react';
 import axios from 'axios';
 import {
   BrowserRouter as Router,
   Switch,
   Route,
 } from "react-router-dom";
+import logo from './podspace.png';
+import './css/App.css';
 
 import Detail from './components/Detail';
 
-import logo from './podspace.png';
-import './css/App.css';
+const PodcastList = lazy(() => import('./components/PodcastList'));
 
 class PodCasts extends React.Component {
   constructor(props) {
@@ -36,61 +37,17 @@ class PodCasts extends React.Component {
           filterText={this.state.filterText}
           onFilterTextChange={this.handleFilterTextChange}
         />
+        <Suspense fallback={<div align="center"><h1>Loading...</h1></div>}>
         <PodcastList
           podcasts={this.props.podcasts}
           filterText={this.state.filterText}
         />
+        </Suspense>
       </div>
     );
   }
 }
 
-class PodcastList extends React.Component {
-  render() {
-    const filterText = this.props.filterText;
-
-    const rows = [];
-
-    this.props.podcasts.forEach((podcast) => {
-      if (podcast.title.toLowerCase().indexOf(filterText.toLowerCase()) === -1) {
-        return;
-      }
-      rows.push(
-        <PodcastRow
-          podcast={podcast}
-          key={podcast.title}
-        />
-      );
-    });
-    return (
-      <div>
-        {rows}
-      </div>
-    );
-  }
-}
-class PodcastRow extends React.Component {
-  render() {
-    const podcast = this.props.podcast;
-    
-    return (
-      <ul className="List-pods">
-        <li>
-          <table className="Tabel-pods">
-            <tr>
-              <td><img src={podcast.thumbnail} alt={podcast.title} width="150px" height="150px" /></td>
-              <td>
-                <h3>{podcast.title}</h3>
-                <p>{podcast.url}</p>
-                <a href={"/detail/"+podcast.id} className="Detail-button">Lihat >></a>
-              </td>
-            </tr>
-          </table>
-        </li>
-      </ul>
-    );
-  }
-}
 class Header extends React.Component {
   render() {
     return (
@@ -100,7 +57,6 @@ class Header extends React.Component {
     );
   }
 }
-
 class SearchBar extends React.Component {
   constructor(props) {
     super(props);
@@ -111,6 +67,9 @@ class SearchBar extends React.Component {
     this.props.onFilterTextChange(e.target.value);
   }
   
+handleSearch = () => {
+      this.context.router.push(`'/search/${this.state.query}/some-action'`);
+}
   render() {
     return (
       <div className="Searchbar">
@@ -127,7 +86,6 @@ class SearchBar extends React.Component {
     );
   }
 }
-
 class App extends React.Component {
   state = {
     podcasts: []
