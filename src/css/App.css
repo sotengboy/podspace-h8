@@ -20,6 +20,24 @@
   color: white;
 }
 
+.App-link {
+  color: #61dafb;
+}
+.List-pods {
+  list-style: none;
+}
+.List-pods li {
+  margin: 20px;
+  margin-left: -15px;
+  border: 1px solid #ccc;
+  padding: 10px;
+}
+.Tabel-pods td {
+  padding-right: 10px;
+}
+.Detail-pod {
+  height: 350px;
+}
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
