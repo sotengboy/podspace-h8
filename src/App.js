@@ -18,7 +18,6 @@ class PodCasts extends React.Component {
     super(props);
     this.state = {
       filterText: '',
-      inStockOnly: false
     };
     
     this.handleFilterTextChange = this.handleFilterTextChange.bind(this);

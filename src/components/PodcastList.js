@@ -1,7 +1,5 @@
-import React from 'react';
-import Loading from './Loading';
-import PodcastRow from './PodcastRow';
-const LoadingPodcastRow = Loading(PodcastRow);
+import React, {Suspense, lazy} from 'react';
+const PodcastRow = lazy(() => import('./PodcastRow'));
 class PodcastList extends React.Component {
     render() {
       const filterText = this.props.filterText;
@@ -13,10 +11,12 @@ class PodcastList extends React.Component {
           return;
         }
         rows.push(
-          <LoadingPodcastRow
+          <Suspense fallback={<div align="center"><h3>Loading Podcasts...</h3></div>}>
+          <PodcastRow
             podcast={podcast}
             key={podcast.title}
           />
+          </Suspense>
         );
       });
       return (

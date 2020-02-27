@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Suspense} from 'react';
 /** @jsx jsx */
 import {css, jsx} from "@emotion/core";
 
@@ -20,7 +20,7 @@ class PodcastRow extends React.Component {
               <tr>
                 <td css={css`
                   padding-right: 10px;
-                `}><img src={podcast.thumbnail} alt={podcast.title} width="150px" height="150px" /></td>
+                `}><Suspense fallback={<div align="center"><h1>Loading...</h1></div>}><img src={podcast.thumbnail} alt={podcast.title} width="150px" height="150px" /></Suspense></td>
                 <td>
                   <h3>{podcast.title}</h3>
                   <p>{podcast.url}</p>

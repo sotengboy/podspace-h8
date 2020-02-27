@@ -34,7 +34,7 @@ class SearchBar extends React.Component {
               css={css`
               border: 0px;
               padding: 10px 10px;
-	            width: 67%;
+	            width: 93%;
               `}
             /><button css={css`
             background-color: #650d88 ;
