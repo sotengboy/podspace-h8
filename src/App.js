@@ -58,7 +58,7 @@ class PodcastRow extends React.Component {
               <td>
                 <h3>{podcast.title}</h3>
                 <p>{podcast.url}</p>
-                <Link to={"/detail/"+podcast.id}>Lihat >></Link>
+                <Link to={"/detail/"+podcast.id} className="Detail-button">Lihat >></Link>
               </td>
             </tr>
           </table>
@@ -97,9 +97,6 @@ class Header extends React.Component {
     return (
       <header className="App-header">
         <img src={logo} alt="logo" />
-        <p>
-          Podcast Client
-        </p>
       </header>
     );
   }
@@ -122,14 +119,17 @@ class SearchBar extends React.Component {
   
   render() {
     return (
-      <form>
-        <input
-          type="text"
-          placeholder="Cari Podcast..."
-          value={this.props.filterText}
-          onChange={this.handleFilterTextChange}
-        /><button>Cari</button>
-      </form>
+      <div className="Searchbar">
+        <form>
+          <input
+            type="text"
+            placeholder="Cari Podcast..."
+            value={this.props.filterText}
+            onChange={this.handleFilterTextChange}
+            className="Search"
+          /><button className="Submit"><img src="./icons/search.png" alt="Search Icon" width="16px" /> Cari</button>
+        </form>
+      </div>
     );
   }
 }
