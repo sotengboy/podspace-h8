@@ -1,4 +1,5 @@
 import React, {Suspense} from 'react';
+import { Row, Col } from 'react-flexbox-grid';
 /** @jsx jsx */
 import {css, jsx} from "@emotion/core";
 
@@ -7,29 +8,23 @@ class PodcastRow extends React.Component {
       const podcast = this.props.podcast;
       
       return (
-        <ul css={css`
-        list-style: none;
-        `}>
-          <li css={css`
-            border: 1px solid #650d88;
-            margin: 20px;
-            margin-left: -15px;
-            padding: 10px;
-          `}>
-            <table>
-              <tr>
-                <td css={css`
-                  padding-right: 10px;
-                `}><Suspense fallback={<div align="center"><h1>Loading...</h1></div>}><img src={podcast.thumbnail} alt={podcast.title} width="150px" height="150px" /></Suspense></td>
-                <td>
-                  <h3>{podcast.title}</h3>
-                  <p>{podcast.url}</p>
-                  <a href={"/detail/"+podcast.id} css={css`background: #650d88;color: #fff;padding: 10px;`}>Lihat >></a>
-                </td>
-              </tr>
-            </table>
-          </li>
-        </ul>
+        
+        <Row css={css`
+        border: 1px solid #650d88;
+        margin: 10px;
+      `}>
+          <Col lg={3} md={3} sm={12} xs={12} >
+            <Suspense fallback={<div align="center"><h1>Loading...</h1></div>}>
+              <img src={podcast.thumbnail} alt={podcast.title} css={css`width:100%;min-width:150px;max-width:300px;`} />
+            </Suspense>
+          </Col>
+          <Col lg={9} md={9} sm={12} xs={12}>
+            <h3>{podcast.title}</h3>
+            <p>{podcast.url}</p>
+            <a href={"/detail/"+podcast.id} css={css`background: #650d88;color: #fff;padding: 10px;`}>Lihat >></a>
+            <br />
+          </Col>
+        </Row>
       );
     }
   }

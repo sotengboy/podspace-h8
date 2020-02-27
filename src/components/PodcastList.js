@@ -1,4 +1,5 @@
 import React, {Suspense, lazy} from 'react';
+import { Grid } from 'react-flexbox-grid';
 const PodcastRow = lazy(() => import('./PodcastRow'));
 class PodcastList extends React.Component {
     render() {
@@ -20,9 +21,9 @@ class PodcastList extends React.Component {
         );
       });
       return (
-        <div>
+        <Grid fluid>
           {rows}
-        </div>
+          </Grid>
       );
     }
   }

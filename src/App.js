@@ -1,5 +1,6 @@
-import React, { Suspense, lazy } from 'react';
+import React from 'react';
 import axios from 'axios';
+import { Row, Col } from 'react-flexbox-grid';
 import {
   BrowserRouter as Router,
   Switch,
@@ -9,9 +10,8 @@ import './css/App.css';
 
 import Header from './components/Header';
 import SearchBar from './components/Searchbar';
+import PodcastList from './components/PodcastList';
 import Detail from './components/Detail';
-
-const PodcastList = lazy(() => import('./components/PodcastList'));
 
 class PodCasts extends React.Component {
   constructor(props) {
@@ -36,12 +36,10 @@ class PodCasts extends React.Component {
           filterText={this.state.filterText}
           onFilterTextChange={this.handleFilterTextChange}
         />
-        <Suspense fallback={<div align="center"><h1>Loading...</h1></div>}>
         <PodcastList
           podcasts={this.props.podcasts}
           filterText={this.state.filterText}
         />
-        </Suspense>
       </div>
     );
   }
@@ -61,7 +59,8 @@ class App extends React.Component {
   }
   render (){
     return (
-      <div>
+      <Row>
+        <Col xs={12} sm={12} md={12} lg={12}>
         <Header />
         <Router>
         <Switch>
@@ -73,7 +72,8 @@ class App extends React.Component {
           </Route>
         </Switch>
         </Router>
-      </div>
+        </Col>
+      </Row>
     );
   }
 }
