@@ -1,7 +1,9 @@
 .App {
   
 }
-
+a {
+  text-decoration: none;
+}
 .App-logo {
   margin-top: 10px;
   pointer-events: none;
@@ -15,10 +17,10 @@
 
 .App-header {
   background-color: #fff;
-  text-align: center;
-  padding-bottom: 10px;
-  color: black;
   border-bottom:double 2px #650d88;
+  color: black;
+  padding-bottom: 10px;
+  text-align: center;
 }
 
 .App-link {
@@ -28,9 +30,9 @@
   list-style: none;
 }
 .List-pods li {
+  border: 1px solid #650d88;
   margin: 20px;
   margin-left: -15px;
-  border: 1px solid #650d88;
   padding: 10px;
 }
 .Tabel-pods td {
@@ -39,20 +41,25 @@
 .Detail-pod {
   height: 350px;
 }
+.Detail-button {
+  background: #650d88;
+  color: #fff;
+  padding: 10px;
+}
 .Searchbar
 {
-	border: 2px solid #650d88;
-	overflow: auto;
+  border: 2px solid #650d88;
   border-radius: 5px;
-  margin: 10px;
+	overflow: auto;
 	-moz-border-radius: 5px;
-	-webkit-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  margin: 10px;
 }
 .Searchbar input[type="text"]
 {
-	border: 0px;
+  border: 0px;
+  padding: 10px 10px;
 	width: 67%;
-	padding: 10px 10px;
 }
 .Searchbar input[type="text"]:focus
 {
@@ -60,12 +67,12 @@
 }
 .Submit
 {
-  border: 1px solid #650d88;
+  background-color: #650d88 ;
+  border: 0px;
 	color: #fff;
-	background-color: #650d88 ;
+	cursor:pointer;
 	float: right;
 	padding: 10px;
-  cursor:pointer;
 }
 @keyframes App-logo-spin {
   from {

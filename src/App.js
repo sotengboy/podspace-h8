@@ -4,7 +4,6 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link,
 } from "react-router-dom";
 
 import Detail from './components/Detail';
@@ -45,28 +44,7 @@ class PodCasts extends React.Component {
     );
   }
 }
-class PodcastRow extends React.Component {
-  render() {
-    const podcast = this.props.podcast;
-    
-    return (
-      <ul className="List-pods">
-        <li>
-          <table className="Tabel-pods">
-            <tr>
-              <td><img src={podcast.thumbnail} alt={podcast.title} width="150px" height="150px" /></td>
-              <td>
-                <h3>{podcast.title}</h3>
-                <p>{podcast.url}</p>
-                <Link to={"/detail/"+podcast.id} className="Detail-button">Lihat >></Link>
-              </td>
-            </tr>
-          </table>
-        </li>
-      </ul>
-    );
-  }
-}
+
 class PodcastList extends React.Component {
   render() {
     const filterText = this.props.filterText;
@@ -74,7 +52,7 @@ class PodcastList extends React.Component {
     const rows = [];
 
     this.props.podcasts.forEach((podcast) => {
-      if (podcast.title.indexOf(filterText) === -1) {
+      if (podcast.title.toLowerCase().indexOf(filterText.toLowerCase()) === -1) {
         return;
       }
       rows.push(
@@ -91,7 +69,28 @@ class PodcastList extends React.Component {
     );
   }
 }
-
+class PodcastRow extends React.Component {
+  render() {
+    const podcast = this.props.podcast;
+    
+    return (
+      <ul className="List-pods">
+        <li>
+          <table className="Tabel-pods">
+            <tr>
+              <td><img src={podcast.thumbnail} alt={podcast.title} width="150px" height="150px" /></td>
+              <td>
+                <h3>{podcast.title}</h3>
+                <p>{podcast.url}</p>
+                <a href={"/detail/"+podcast.id} className="Detail-button">Lihat >></a>
+              </td>
+            </tr>
+          </table>
+        </li>
+      </ul>
+    );
+  }
+}
 class Header extends React.Component {
   render() {
     return (
@@ -106,15 +105,10 @@ class SearchBar extends React.Component {
   constructor(props) {
     super(props);
     this.handleFilterTextChange = this.handleFilterTextChange.bind(this);
-    this.handleInStockChange = this.handleInStockChange.bind(this);
   }
   
   handleFilterTextChange(e) {
     this.props.onFilterTextChange(e.target.value);
-  }
-  
-  handleInStockChange(e) {
-    this.props.onInStockChange(e.target.checked);
   }
   
   render() {
