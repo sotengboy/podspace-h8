@@ -59,7 +59,7 @@ class App extends React.Component {
   }
   render (){
     return (
-      <Row>
+      <Row data-testid="app">
         <Col xs={12} sm={12} md={12} lg={12}>
         <Header />
         <Router>

@@ -1,11 +1,9 @@
 import React from 'react';
-import SearchBar from '../components/Searchbar';
-import ReactTestUtils from 'react-dom/test-utils';
+import { render } from '@testing-library/react';
+import App from '../App';
 
-const handleSearch = jest.fn();
-const searchBar = ReactTestUtils.renderIntoDocument(
-    <SearchBar filterText="test"
-    onFilterTextChange="test" />
-);
-ReactTestUtils.Simulate.change(input, {target: {value: 'test'}});
-expect(handleSearch).toHaveBeenCalledWith('test')
+test('renders App container', () => {
+    const { getByTestId } = render(<App />);
+    const container = getByTestId('app');
+    expect(container).toBeTruthy();
+  });
