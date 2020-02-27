@@ -3,7 +3,9 @@ import axios from 'axios';
 import {
     useParams
   } from "react-router-dom";
-import '../css/App.css';
+/** @jsx jsx */
+import {css, jsx} from "@emotion/core";
+import styled from '@emotion/styled';
 class Data extends React.Component {
     
     state = {
@@ -20,16 +22,23 @@ class Data extends React.Component {
           
       }
     render() {
-        
+        const Table = styled.table`
+        display: flex;
+        align-items: center;
+        border: 1px solid #650d88;
+        margin: 10px;
+        @media (max-width: 778px) {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+      `;
         return (
-          <div className="Detail-pod">
+          <div css={css`height: 350px;width:100%;`}>
             
-            <ul className="List-pods">
-                <li>
-                    <table className="Tabel-pods">
+                    <Table>
                     { this.state.podcasts.map(podcast => 
                         <tr>
-                            <td><img src={podcast.thumbnail} alt={podcast.title} width="400px"/></td>
+                            <td><img src={podcast.thumbnail} alt={podcast.title} css={css`width:100%;min-width:100px;max-width:400px;padding-right:20px`} /></td>
                             <td>
                                 <h3>{podcast.title}</h3>
                                 <p><a href={podcast.url}>{podcast.url}</a></p>
@@ -43,9 +52,7 @@ class Data extends React.Component {
                             </td>
                         </tr>
                     )}
-                    </table>
-                </li>
-            </ul>
+                    </Table>
         
           </div>  
         );

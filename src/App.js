@@ -30,7 +30,6 @@ class PodCasts extends React.Component {
     });
   }
   
-
   render() {
     return (
       <div>
@@ -63,7 +62,7 @@ class App extends React.Component {
   }
   render (){
     return (
-      <div className="App">
+      <div>
         <Header />
         <Router>
         <Switch>
