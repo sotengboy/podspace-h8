@@ -2,7 +2,7 @@ import React from 'react';
 import axios from 'axios';
 /** @jsx jsx */
 import {css, jsx} from "@emotion/core";
-import ApiContext from './ApiContext';
+import ApiContext from './ProviderContext';
 import loaderimg from '../images/load.gif';
 
 class Api extends React.Component {

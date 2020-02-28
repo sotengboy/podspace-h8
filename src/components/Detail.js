@@ -22,7 +22,7 @@ function Detail(props) {
             height: 450px;
             `}>
             
-                <div >
+                <div data-testid="detail">
                     <Suspense fallback={<div><img src={loaderimg} alt="Loading" /></div>}>
                         <img src={podcast.thumbnail} alt={podcast.title} css={styles.thumbnail} />
                     </Suspense>

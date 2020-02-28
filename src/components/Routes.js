@@ -1,7 +1,7 @@
 import React, {Suspense, lazy} from 'react';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
-import ApiContext from '../api/ApiContext';
+import ProviderContext from '../provider/ProviderContext';
 import loaderimg from '../images/load.gif';
 
 const Podcasts = lazy(() => import('./Podcasts'));
@@ -10,7 +10,7 @@ const Detail = lazy(() => import('./Detail'))
 class Routes extends React.Component {
     render() {
     return (
-      <ApiContext.Consumer>
+      <ProviderContext.Consumer>
         {(context) => (  
           <Router>
             <Switch>
@@ -27,7 +27,7 @@ class Routes extends React.Component {
             </Switch>
           </Router>
         )}
-      </ApiContext.Consumer>
+      </ProviderContext.Consumer>
     )
   }
 }
