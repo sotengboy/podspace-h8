@@ -78,6 +78,11 @@ a {
   position: fixed;
   z-index: 99;
 }
+.Logo {
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+}
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

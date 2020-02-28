@@ -1,13 +1,12 @@
 import React, {Suspense, lazy} from 'react';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-} from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+
 import ApiContext from '../api/ApiContext';
 import loaderimg from '../images/load.gif';
+
 const Podcasts = lazy(() => import('./Podcasts'));
 const Detail = lazy(() => import('./Detail'))
+
 class Routes extends React.Component {
     render() {
     return (

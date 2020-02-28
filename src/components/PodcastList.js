@@ -1,6 +1,9 @@
 import React, {Suspense, lazy} from 'react';
-import { Grid } from 'react-flexbox-grid';
+/** @jsx jsx */
+import {css, jsx} from "@emotion/core";
+
 const PodcastRow = lazy(() => import('./PodcastRow'));
+
 class PodcastList extends React.Component {
     render() {
       const filterText = this.props.filterText;
@@ -13,19 +16,24 @@ class PodcastList extends React.Component {
         }
         rows.push(
           <Suspense fallback={<div align="center"><h3>Loading Podcasts...</h3></div>} key={podcast.id.toString()}>
-          <PodcastRow
-            podcast={podcast}
-            
-          />
+            <PodcastRow podcast={podcast} />
           </Suspense>
         );
       });
       return (
-        <Grid fluid>
+        <div css={styles.container}>
           {rows}
-        </Grid>
+        </div>
           
       );
     }
   }
+const styles = {
+  container: css`
+    display: flex;
+    flex-direction: column;
+    height: 350px;
+    width: 100%;
+  `
+}
 export default PodcastList;

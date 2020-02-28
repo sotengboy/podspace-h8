@@ -1,7 +1,4 @@
 import React, {Suspense, lazy} from 'react';
-import { Row, Col } from 'react-flexbox-grid';
-
-import './css/App.css';
 import loaderimg from './images/load.gif';
 
 import Api from './api/Api';
@@ -12,16 +9,14 @@ const Header = lazy(() => import('./components/Header'));;
 class App extends React.Component {
   render (){
     return (
-      <Row data-testid="app">
-        <Col xs={12} sm={12} md={12} lg={12}>
+      <div data-testid="app">
           <Api>
-          <Suspense fallback={<div><img src={loaderimg} alt="Loading" /></div>}>
-            <Header />
-          </Suspense>
+            <Suspense fallback={<div><img src={loaderimg} alt="Loading" /></div>}>
+              <Header />
+            </Suspense>
             <Routes />
           </Api>
-        </Col>
-      </Row>
+      </div>
     );
   }
 }

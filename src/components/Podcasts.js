@@ -1,13 +1,14 @@
 import React from 'react';
+
 import SearchBar from './Searchbar';
 import PodcastList from './PodcastList';
 
 class Podcasts extends React.Component {
     constructor(props) {
       super(props);
-      this.state = {
-        filterText: '',
-      };
+        this.state = {
+          filterText: '',
+        };
       this.handleFilterTextChange = this.handleFilterTextChange.bind(this);
     }
   
