@@ -7,7 +7,7 @@ class Episodes extends React.Component {
     return (
         <div>
     {episodes.map(item => 
-            <Audio audio={item.audio} />
+            <Audio audio={item.audio} key={item.id} />
         )}
         </div>
     );

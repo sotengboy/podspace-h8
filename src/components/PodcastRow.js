@@ -3,6 +3,7 @@ import { Row, Col } from 'react-flexbox-grid';
 import { Link } from "react-router-dom";
 /** @jsx jsx */
 import {css, jsx} from "@emotion/core";
+import loaderimg from '../images/load.gif';
 
 class PodcastRow extends React.Component {
     render() {
@@ -15,8 +16,8 @@ class PodcastRow extends React.Component {
         margin: 10px;
       `}>
           <Col lg={3} md={3} sm={12} xs={12} >
-            <Suspense fallback={<div align="center"><h1>Loading...</h1></div>}>
-              <img src={podcast.thumbnail} alt={podcast.title} css={css`width:100%;min-width:150px;max-width:300px;`} />
+            <Suspense fallback={<div><img src={loaderimg} alt="Loading" /></div>}>
+              <img src={podcast.thumbnail} alt={podcast.title} css={css`width:100%;min-width:150px;max-width:300px;margin-top:3px;`} />
             </Suspense>
           </Col>
           <Col lg={9} md={9} sm={12} xs={12}>

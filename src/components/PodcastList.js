@@ -12,10 +12,10 @@ class PodcastList extends React.Component {
           return;
         }
         rows.push(
-          <Suspense fallback={<div align="center"><h3>Loading Podcasts...</h3></div>}>
+          <Suspense fallback={<div align="center"><h3>Loading Podcasts...</h3></div>} key={podcast.id.toString()}>
           <PodcastRow
             podcast={podcast}
-            key={podcast.title}
+            
           />
           </Suspense>
         );
@@ -23,7 +23,8 @@ class PodcastList extends React.Component {
       return (
         <Grid fluid>
           {rows}
-          </Grid>
+        </Grid>
+          
       );
     }
   }

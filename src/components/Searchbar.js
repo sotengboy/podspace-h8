@@ -36,6 +36,8 @@ class SearchBar extends React.Component {
                 css={css`
                 border: 0px;
                 width: 80%;
+                height:35px;
+                font-size: 14px;
                 &:focus {
                   outline: none;
                 }

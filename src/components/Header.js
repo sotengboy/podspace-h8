@@ -2,7 +2,7 @@ import React from 'react';
 import styled from "@emotion/styled";
 import { Row, Col } from 'react-flexbox-grid';
 
-import logo from '../podspace.png';
+import logo from '../images/podspace.png';
 
 class Header extends React.Component {
     render() {
